@@ -130,6 +130,13 @@
                                             <action selector="handleUndoTapped:" destination="rv0-e3-znD" id="Yt2-St-1ZK"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Rename" id="mhl-Eg-iMe">
+                                        <connections>
+                                            <segue destination="TPY-P1-BwC" kind="popover" identifier="ShowNameChangePopover" popoverAnchorBarButtonItem="mhl-Eg-iMe" id="iwG-9f-fuw">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
@@ -171,6 +178,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-h1-63p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1194" y="-1203"/>
+        </scene>
+        <!--Wish List Name Changed View Controller-->
+        <scene sceneID="S77-Ew-1Jv">
+            <objects>
+                <viewController id="TPY-P1-BwC" customClass="CCFWishListNameChangedViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ilK-x5-puh">
+                        <rect key="frame" x="0.0" y="20" width="300" height="100"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2j-6h-JUI">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TPY-P1-BwC" id="bUh-9X-3YX"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y2j-6h-JUI" firstAttribute="top" secondItem="ilK-x5-puh" secondAttribute="top" constant="20" symbolic="YES" type="default" id="5uN-ab-E4w"/>
+                            <constraint firstAttribute="trailing" secondItem="Y2j-6h-JUI" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="A6G-B2-3WP"/>
+                            <constraint firstItem="Y2j-6h-JUI" firstAttribute="leading" secondItem="ilK-x5-puh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="S8C-rU-d0f"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="nameField" destination="Y2j-6h-JUI" id="Jj3-MA-lHg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oCS-sa-FLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2101" y="-1208"/>
         </scene>
         <!--Wish Lists Table Controller-->
         <scene sceneID="bIf-ly-yO3">
@@ -380,6 +419,12 @@
                 <relationship kind="outlet" name="artworkImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CCFWishListNameChangedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCFWishListNameChangedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="CCFWishListViewController" superclassName="UIViewController">

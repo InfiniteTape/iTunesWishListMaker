@@ -8,6 +8,7 @@
 
 #import "CCFWishListViewController.h"
 #import "CCFWishListsStore.h"
+#import "CCFWishListNameChangedViewController.h"
 
 @interface CCFWishListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -94,6 +95,14 @@
                                                      cancelButtonTitle:@"OK"
                                                      otherButtonTitles:nil];
         [cantUndoAlert show];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"ShowNameChangePopover"])
+    {
+        CCFWishListNameChangedViewController *nameChangedVC = (CCFWishListNameChangedViewController *)segue.destinationViewController;
+        nameChangedVC.fileName = [[CCFWishListsStore sharedInstance].currentWishList.fileURL lastPathComponent];
     }
 }
 @end

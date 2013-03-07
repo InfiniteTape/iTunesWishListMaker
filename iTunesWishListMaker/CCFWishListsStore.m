@@ -51,6 +51,17 @@ CCFWishListsStore *CCFWishListsStoreSharedInstance;
     return _currentWishList;
 }
 
+-(void) renameCurrentWishList: (NSString *)name {
+    NSURL *changedURL = [[self localWishListsDirectory] URLByAppendingPathComponent:name];
+    [self.currentWishList saveToURL:changedURL
+                   forSaveOperation:UIDocumentSaveForCreating
+                  completionHandler:^(BOOL success) {
+                      [[NSNotificationCenter defaultCenter]postNotificationName:@"CurrentWishListChanged" object:self];
+                      [self loadLocalWishLists];
+                  }];
+    
+}
+
 #pragma mark - local files
 
 -(NSURL *)localDocumentsDirectory {

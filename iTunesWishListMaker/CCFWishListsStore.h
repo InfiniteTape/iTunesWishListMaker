@@ -15,4 +15,5 @@
 @property (readonly) NSMutableArray *localWishListURLs;
 @property (readonly) NSMutableArray *iCloudWishListURLs;
 -(void) createAndMakeCurrentWishList: (NSString *) name;
+-(void) renameCurrentWishList: (NSString *)name;
 @end

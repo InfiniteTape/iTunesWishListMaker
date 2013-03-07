@@ -26,6 +26,7 @@
 		D32D82E216E8F5690067789D /* CCFWishListsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D82E116E8F5690067789D /* CCFWishListsStore.m */; };
 		D32D82E516E908900067789D /* CCFWishListsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D82E416E908900067789D /* CCFWishListsTableController.m */; };
 		D32D82E816E921600067789D /* CCFWishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D82E716E921600067789D /* CCFWishListViewController.m */; };
+		D3DB1F7416E9385400DA479D /* CCFWishListNameChangedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB1F7316E9385400DA479D /* CCFWishListNameChangedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		D32D82E416E908900067789D /* CCFWishListsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFWishListsTableController.m; sourceTree = "<group>"; };
 		D32D82E616E921600067789D /* CCFWishListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFWishListViewController.h; sourceTree = "<group>"; };
 		D32D82E716E921600067789D /* CCFWishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFWishListViewController.m; sourceTree = "<group>"; };
+		D3DB1F7216E9385400DA479D /* CCFWishListNameChangedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFWishListNameChangedViewController.h; sourceTree = "<group>"; };
+		D3DB1F7316E9385400DA479D /* CCFWishListNameChangedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFWishListNameChangedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 				013937CC16E8B99D000DCA6B /* CCFAllWishListsViewController.m */,
 				D32D82DD16E8E8600067789D /* CCFWishListDocument.h */,
 				D32D82DE16E8E8600067789D /* CCFWishListDocument.m */,
+				D3DB1F7216E9385400DA479D /* CCFWishListNameChangedViewController.h */,
+				D3DB1F7316E9385400DA479D /* CCFWishListNameChangedViewController.m */,
 				D32D82E016E8F5690067789D /* CCFWishListsStore.h */,
 				D32D82E116E8F5690067789D /* CCFWishListsStore.m */,
 				D32D82E316E908900067789D /* CCFWishListsTableController.h */,
@@ -243,6 +248,7 @@
 				D32D82E216E8F5690067789D /* CCFWishListsStore.m in Sources */,
 				D32D82E516E908900067789D /* CCFWishListsTableController.m in Sources */,
 				D32D82E816E921600067789D /* CCFWishListViewController.m in Sources */,
+				D3DB1F7416E9385400DA479D /* CCFWishListNameChangedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
