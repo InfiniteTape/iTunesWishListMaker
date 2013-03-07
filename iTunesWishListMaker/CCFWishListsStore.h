@@ -17,4 +17,5 @@
 -(void) createAndMakeCurrentWishList: (NSString *) name;
 -(void) renameCurrentWishList: (NSString *)name;
 -(BOOL) saveWishListToiCloud:(CCFWishListDocument *) wishList;
+-(void) importWishListFromURL:(NSURL *) url;
 @end

@@ -190,5 +190,21 @@ CCFWishListsStore *CCFWishListsStoreSharedInstance;
            }];
 }
 
+#pragma mark - import export
 
+-(void) importWishListFromURL:(NSURL *) url{
+    CCFWishListDocument *importedWishList = [[CCFWishListDocument alloc]initWithFileURL:url];
+    [importedWishList openWithCompletionHandler:^(BOOL success) {
+        if(success) {
+            NSString *fileName = [url lastPathComponent];
+            NSURL *localURL = [[self localWishListsDirectory] URLByAppendingPathComponent:fileName];
+            [importedWishList saveToURL:localURL
+                       forSaveOperation:UIDocumentSaveForCreating
+                      completionHandler:^(BOOL success) {
+                          self.currentWishList = importedWishList;
+                          [self loadLocalWishLists];
+                      }];
+        }
+    }];
+}
 @end
