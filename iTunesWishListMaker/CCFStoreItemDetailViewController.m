@@ -7,7 +7,7 @@
 //
 
 #import "CCFStoreItemDetailViewController.h"
-//#import "CCFWishListsStore.h"
+#import "CCFWishListsStore.h"
 
 @interface CCFStoreItemDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -65,10 +65,10 @@
 }
 
 - (IBAction)handleAddToWishListTapped:(id)sender {
-//	NSLog (@"currentWishList.mutableWishListDicts is a %@",
-//		   [[CCFWishListsStore sharedInstance].currentWishList.mutableWishListDicts class]);
-//	CCFWishListDocument *wishListDoc = [CCFWishListsStore sharedInstance].currentWishList;
-//	[wishListDoc addItemDict:self.mediaItemDict];
+	NSLog (@"currentWishList.mutableWishListDicts is a %@",
+		   [[CCFWishListsStore sharedInstance].currentWishList.mutableWishListDicts class]);
+	CCFWishListDocument *wishListDoc = [CCFWishListsStore sharedInstance].currentWishList;
+    [wishListDoc addItemDict:self.mediaItemDict];
 //	// can we auto-navigate to the list page?
 }
 
