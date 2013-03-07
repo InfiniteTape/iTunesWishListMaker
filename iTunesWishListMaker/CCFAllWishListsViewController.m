@@ -8,6 +8,7 @@
 
 #import "CCFAllWishListsViewController.h"
 //#import "CCFWishListDocument.h"
+#import "CCFWishListsStore.h"
 
 @interface CCFAllWishListsViewController ()
 @end
@@ -30,6 +31,7 @@
 	if (self) {
 		// get the split view delegate callback so we can find the button
 		self.delegate = self;
+        [CCFWishListsStore sharedInstance];
 	}
 	return self;
 }
