@@ -11,6 +11,7 @@
 
 @interface CCFWishListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)handleUndoTapped:(id)sender;
 
 @end
 
@@ -25,6 +26,7 @@
                                                            queue:nil
                                                       usingBlock:^(NSNotification *note) {
                                                           [self.tableView reloadData];
+                                                          self.navigationController.navigationBar.topItem.title = [[CCFWishListsStore sharedInstance].currentWishList.fileURL lastPathComponent];
                                                       }];
     }
     return self;
@@ -70,4 +72,28 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *item = [[CCFWishListsStore sharedInstance].currentWishList.mutableWishListDicts objectAtIndex:indexPath.row];
+        [[CCFWishListsStore sharedInstance].currentWishList removeItemDict:item];
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (IBAction)handleUndoTapped:(id)sender {
+    CCFWishListDocument *wishListDocument = [CCFWishListsStore sharedInstance].currentWishList;
+    if([wishListDocument.undoManager canUndo]) {
+        [wishListDocument.undoManager undo];
+        [self.tableView reloadData];
+    }
+    else {
+        UIAlertView *cantUndoAlert = [[UIAlertView alloc]initWithTitle:@"Can't Undo"
+                                                               message:@"Nothing to undo"
+                                                              delegate:nil
+                                                     cancelButtonTitle:@"OK"
+                                                     otherButtonTitles:nil];
+        [cantUndoAlert show];
+    }
+}
 @end
