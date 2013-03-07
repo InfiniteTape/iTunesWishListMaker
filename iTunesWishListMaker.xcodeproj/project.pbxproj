@@ -22,6 +22,7 @@
 		013937C616E8B1BE000DCA6B /* CCFMediaTypeSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 013937C416E8B1BE000DCA6B /* CCFMediaTypeSearch.m */; };
 		013937C916E8B52F000DCA6B /* CCFStoreItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 013937C816E8B52F000DCA6B /* CCFStoreItemDetailViewController.m */; };
 		013937CD16E8B99D000DCA6B /* CCFAllWishListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 013937CC16E8B99D000DCA6B /* CCFAllWishListsViewController.m */; };
+		D32D82DF16E8E8600067789D /* CCFWishListDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D82DE16E8E8600067789D /* CCFWishListDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		013937C816E8B52F000DCA6B /* CCFStoreItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFStoreItemDetailViewController.m; sourceTree = "<group>"; };
 		013937CB16E8B99D000DCA6B /* CCFAllWishListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFAllWishListsViewController.h; sourceTree = "<group>"; };
 		013937CC16E8B99D000DCA6B /* CCFAllWishListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFAllWishListsViewController.m; sourceTree = "<group>"; };
+		D32D82DD16E8E8600067789D /* CCFWishListDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFWishListDocument.h; sourceTree = "<group>"; };
+		D32D82DE16E8E8600067789D /* CCFWishListDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFWishListDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 			children = (
 				013937CB16E8B99D000DCA6B /* CCFAllWishListsViewController.h */,
 				013937CC16E8B99D000DCA6B /* CCFAllWishListsViewController.m */,
+				D32D82DD16E8E8600067789D /* CCFWishListDocument.h */,
+				D32D82DE16E8E8600067789D /* CCFWishListDocument.m */,
 			);
 			name = "Wish Lists";
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				013937C616E8B1BE000DCA6B /* CCFMediaTypeSearch.m in Sources */,
 				013937C916E8B52F000DCA6B /* CCFStoreItemDetailViewController.m in Sources */,
 				013937CD16E8B99D000DCA6B /* CCFAllWishListsViewController.m in Sources */,
+				D32D82DF16E8E8600067789D /* CCFWishListDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
