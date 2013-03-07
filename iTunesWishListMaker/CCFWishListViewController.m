@@ -9,13 +9,15 @@
 #import "CCFWishListViewController.h"
 #import "CCFWishListsStore.h"
 #import "CCFWishListNameChangedViewController.h"
+#import "CCFWishListPDFExport.h"
 
 @interface CCFWishListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)handleUndoTapped:(id)sender;
-
 - (IBAction)handleSaveToiCloudTapped:(id)sender;
-
+- (IBAction)handleActionTapped:(id)sender;
+@property (strong) UIDocumentInteractionController *interactionController;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 @end
 
 @implementation CCFWishListViewController
@@ -105,6 +107,13 @@
                   [CCFWishListsStore sharedInstance].currentWishList];
     if(!saved)
         NSLog(@"couldn't save to iCloud");
+}
+
+- (IBAction)handleActionTapped:(id)sender {
+    CCFWishListPDFExport *exporter = [[CCFWishListPDFExport alloc]init];
+    NSURL *exportedURL = [exporter URLForExportedWishList];
+    self.interactionController = [UIDocumentInteractionController interactionControllerWithURL:exportedURL];
+    [self.interactionController presentOptionsMenuFromBarButtonItem:self.actionButton animated:YES];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
