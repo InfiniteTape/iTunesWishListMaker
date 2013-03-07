@@ -103,5 +103,16 @@ CCFWishListsStore *CCFWishListsStoreSharedInstance;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LocalWishListsChanged" object:self];
 }
 
+-(void)createAndMakeCurrentWishList:(NSString *)name {
+    NSURL *newURL = [[self localWishListsDirectory] URLByAppendingPathComponent:name];
+    CCFWishListDocument *emptyWishList = [[CCFWishListDocument alloc] initWithFileURL:newURL];
+    [emptyWishList saveToURL:newURL
+            forSaveOperation:UIDocumentSaveForCreating
+           completionHandler:^(BOOL success) {
+               self.currentWishList = emptyWishList;
+               [self loadLocalWishLists];
+           }];
+}
+
 
 @end

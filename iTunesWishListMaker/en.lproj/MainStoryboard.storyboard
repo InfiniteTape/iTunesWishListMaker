@@ -150,16 +150,16 @@
             </objects>
             <point key="canvasLocation" x="1194" y="-1203"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Wish Lists Table Controller-->
         <scene sceneID="bIf-ly-yO3">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="0Kn-Zw-o6E" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="0Kn-Zw-o6E" customClass="CCFWishListsTableController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yhu-Wa-FMj">
                         <rect key="frame" x="0.0" y="64" width="320" height="788"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oDJ-ji-ryo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WishListURLCell" id="oDJ-ji-ryo">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -183,9 +183,19 @@
                                 <segment title="Local"/>
                                 <segment title="iCloud"/>
                             </segments>
+                            <connections>
+                                <action selector="directorySegmentedControlValueChanged:" destination="0Kn-Zw-o6E" eventType="valueChanged" id="qa8-gh-MbB"/>
+                            </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fim-2N-U0a"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fim-2N-U0a">
+                            <connections>
+                                <action selector="handleAddTapped:" destination="0Kn-Zw-o6E" id="F3d-Hi-YOQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="directorySegmentedControl" destination="fKL-0l-fJ4" id="7ND-sO-f9k"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ovf-40-WZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -323,49 +333,6 @@
             <point key="canvasLocation" x="-947" y="-1041"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CCFAllWishListsViewController" superclassName="UISplitViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCFAllWishListsViewController.h"/>
-        </class>
-        <class className="CCFGenericItemCollectionCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCFGenericItemCollectionCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CCFSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCFSearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="resultsView" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-        <class className="CCFStoreItemDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCFStoreItemDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handleAddToWishListTapped:"/>
-                <relationship kind="outlet" name="artistLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="artworkImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
