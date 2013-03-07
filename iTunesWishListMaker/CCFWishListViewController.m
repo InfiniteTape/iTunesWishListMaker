@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)handleUndoTapped:(id)sender;
 
+- (IBAction)handleSaveToiCloudTapped:(id)sender;
+
 @end
 
 @implementation CCFWishListViewController
@@ -96,6 +98,13 @@
                                                      otherButtonTitles:nil];
         [cantUndoAlert show];
     }
+}
+
+- (IBAction)handleSaveToiCloudTapped:(id)sender {
+    BOOL saved = [[CCFWishListsStore sharedInstance] saveWishListToiCloud:
+                  [CCFWishListsStore sharedInstance].currentWishList];
+    if(!saved)
+        NSLog(@"couldn't save to iCloud");
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

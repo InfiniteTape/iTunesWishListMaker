@@ -28,6 +28,12 @@
                                                       usingBlock:^(NSNotification *note) {
                                                           [self.tableView reloadData];
                                                       }];
+        [[NSNotificationCenter defaultCenter] addObserverForName:@"iCloudWishListsChanged"
+                                                          object:nil
+                                                           queue:nil
+                                                      usingBlock:^(NSNotification *note) {
+                                                          [self.tableView reloadData];
+                                                      }];
     }
     return self;
 }

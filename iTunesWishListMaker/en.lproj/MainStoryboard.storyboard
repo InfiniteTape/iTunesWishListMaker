@@ -137,6 +137,11 @@
                                             </segue>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Save to iCloud" id="W7A-G7-Fgh">
+                                        <connections>
+                                            <action selector="handleSaveToiCloudTapped:" destination="rv0-e3-znD" id="I9b-lX-5Vw"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
@@ -430,6 +435,7 @@
         <class className="CCFWishListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CCFWishListViewController.h"/>
             <relationships>
+                <relationship kind="action" name="handleSaveToiCloudTapped:"/>
                 <relationship kind="action" name="handleUndoTapped:"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>

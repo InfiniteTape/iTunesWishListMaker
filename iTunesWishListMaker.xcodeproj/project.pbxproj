@@ -65,6 +65,7 @@
 		D32D82E716E921600067789D /* CCFWishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFWishListViewController.m; sourceTree = "<group>"; };
 		D3DB1F7216E9385400DA479D /* CCFWishListNameChangedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFWishListNameChangedViewController.h; sourceTree = "<group>"; };
 		D3DB1F7316E9385400DA479D /* CCFWishListNameChangedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFWishListNameChangedViewController.m; sourceTree = "<group>"; };
+		D3DB1F7516E93E8400DA479D /* iTunesWishListMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iTunesWishListMaker.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +114,7 @@
 			children = (
 				013937A816E8AEFA000DCA6B /* CCFAppDelegate.h */,
 				013937A916E8AEFA000DCA6B /* CCFAppDelegate.m */,
+				D3DB1F7516E93E8400DA479D /* iTunesWishListMaker.entitlements */,
 				013937B116E8AEFA000DCA6B /* MainStoryboard.storyboard */,
 				013937BF16E8B183000DCA6B /* Search */,
 				013937CA16E8B6EA000DCA6B /* Wish Lists */,
@@ -299,7 +301,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -324,7 +326,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -335,6 +337,7 @@
 		013937BA16E8AEFA000DCA6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = iTunesWishListMaker/iTunesWishListMaker.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTunesWishListMaker/iTunesWishListMaker-Prefix.pch";
 				INFOPLIST_FILE = "iTunesWishListMaker/iTunesWishListMaker-Info.plist";
@@ -346,6 +349,7 @@
 		013937BB16E8AEFA000DCA6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = iTunesWishListMaker/iTunesWishListMaker.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTunesWishListMaker/iTunesWishListMaker-Prefix.pch";
 				INFOPLIST_FILE = "iTunesWishListMaker/iTunesWishListMaker-Info.plist";

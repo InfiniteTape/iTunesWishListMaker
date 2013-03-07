@@ -28,6 +28,7 @@ CCFWishListsStore *CCFWishListsStoreSharedInstance;
         _localWishListURLs = [[NSMutableArray alloc] init];
         _iCloudWishListURLs = [[NSMutableArray alloc] init];
         [self loadLocalWishLists];
+        [self loadiCloudWishLists];
     }
     return self;
 }
@@ -113,6 +114,70 @@ CCFWishListsStore *CCFWishListsStoreSharedInstance;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LocalWishListsChanged" object:self];
 }
+
+#pragma mark icloud
+
+-(NSURL *)iCloudDocumentsDirectory {
+    NSURL *cloudURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+    cloudURL = [cloudURL URLByAppendingPathComponent:@"Documents"];
+    return cloudURL;
+}
+
+-(NSURL *)iCloudWishListsDirectory {
+    return [[self iCloudDocumentsDirectory] URLByAppendingPathComponent:@"wishlists"];
+}
+
+-(void)loadiCloudWishLists {
+    [self.iCloudWishListURLs removeAllObjects];
+    // bail if no iCloud
+    if(! [self iCloudDocumentsDirectory])
+        return;
+    
+    NSString *wishListsPath = [[self iCloudWishListsDirectory] path];
+    BOOL pathExists = [[NSFileManager defaultManager] fileExistsAtPath:wishListsPath];
+    if(!pathExists){
+        // create directory and seed empty document
+        NSError *createDirectoryError = nil;
+        [[NSFileManager defaultManager] createDirectoryAtPath:wishListsPath
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error:&createDirectoryError];
+    }
+    
+    // load the .wishlist urls
+    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[self iCloudWishListsDirectory]
+                                                      includingPropertiesForKeys:nil
+                                                                         options:0
+                                                                           error:nil];
+    for(NSURL *wishListURL in contents) {
+        if([[wishListURL pathExtension] isEqualToString:@"wishlist"]) {
+            [self.iCloudWishListURLs addObject:wishListURL];
+        }
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"iCloudWishListsChanged" object:self];
+}
+
+-(BOOL) saveWishListToiCloud:(CCFWishListDocument *) wishList {
+    if(![self iCloudDocumentsDirectory])
+        return NO;
+    
+    NSString *fileName = [wishList.fileURL lastPathComponent];
+    NSURL *iCloudURL = [[self iCloudWishListsDirectory] URLByAppendingPathComponent:fileName];
+    CCFWishListDocument *iCloudList = [[CCFWishListDocument alloc] initWithFileURL:iCloudURL];
+    iCloudList.mutableWishListDicts = wishList.mutableWishListDicts;
+    [iCloudList saveToURL:iCloudURL
+         forSaveOperation:UIDocumentSaveForCreating
+        completionHandler:^(BOOL success) {
+            NSLog(@"saved to iCloud %@", iCloudURL);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"iCloudWishListsChanged"
+                                                                object:self];
+        }];
+    
+    return YES;
+}
+
+#pragma mark defined methods
 
 -(void)createAndMakeCurrentWishList:(NSString *)name {
     NSURL *newURL = [[self localWishListsDirectory] URLByAppendingPathComponent:name];
